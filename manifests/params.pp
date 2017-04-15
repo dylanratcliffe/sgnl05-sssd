@@ -30,7 +30,7 @@ class sssd::params {
 
   case $::osfamily {
 
-    'RedHat','Suse': {
+    'RedHat': {
 
       $sssd_package   = 'sssd'
       $sssd_service   = 'sssd'
@@ -54,6 +54,21 @@ class sssd::params {
         $extra_packages_ensure = 'present'
         $manage_oddjobd        = true
       }
+
+    }
+
+    'suse': {
+
+      $sssd_package   = 'sssd'
+      $sssd_service   = 'sssd'
+      $service_ensure = 'running'
+      $config_file    = '/etc/sssd/sssd.conf'
+      $mkhomedir      = true
+
+      $service_dependencies = []
+      $extra_packages = []
+      $extra_packages_ensure = 'present'
+      $manage_oddjobd        = false
 
     }
 
