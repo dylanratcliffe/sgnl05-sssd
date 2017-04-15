@@ -30,7 +30,7 @@ class sssd::params {
 
   case $::osfamily {
 
-    'RedHat': {
+    'RedHat','Suse': {
 
       $sssd_package   = 'sssd'
       $sssd_service   = 'sssd'
