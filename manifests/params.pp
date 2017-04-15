@@ -66,7 +66,13 @@ class sssd::params {
       $mkhomedir      = true
 
       $service_dependencies = []
-      $extra_packages = []
+      $extra_packages = [
+        'sssd-ad',
+        'sssd-ipa',
+        'sssd-krb5',
+        'sssd-proxy',
+        'sssd-tools',
+      ]
       $extra_packages_ensure = 'present'
       $manage_oddjobd        = false
 
